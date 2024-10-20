@@ -11,7 +11,7 @@ const Navbar = () => {
               isActive
                 ? "text-[#23BE0A] border border-[#23BE0A] font-bold btn"
                 : "btn border-none"
-            } bg-white`
+            } bg-white hover:bg-[#23BE0A] hover:text-white`
           }
         >
           Home
@@ -25,7 +25,7 @@ const Navbar = () => {
               isActive
                 ? "text-[#23BE0A] border border-[#23BE0A] font-bold btn"
                 : "btn border-none"
-            } bg-white`
+            } bg-white hover:bg-[#23BE0A] hover:text-white`
           }
         >
           Listed Books
@@ -39,7 +39,7 @@ const Navbar = () => {
               isActive
                 ? "text-[#23BE0A] border border-[#23BE0A] font-bold btn"
                 : "btn border-none"
-            } bg-white`
+            } bg-white hover:bg-[#23BE0A] hover:text-white`
           }
         >
           Pages to Read
@@ -74,7 +74,9 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <Link to={"/"} className=" text-3xl font-bold cursor-pointer">BookHaven</Link>
+        <Link to={"/"} className=" text-3xl font-bold cursor-pointer">
+          BookHaven
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
