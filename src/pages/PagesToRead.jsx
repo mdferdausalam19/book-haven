@@ -1,5 +1,8 @@
+import { getReadBooks } from "../utils/localStorage";
 const PagesToRead = () => {
-  return <div>PagesToRead</div>;
+  const readBooks = getReadBooks();
+
+  return <div></div>;
 };
 
 export default PagesToRead;

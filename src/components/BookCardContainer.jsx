@@ -7,13 +7,13 @@ const BookCardContainer = ({ book }) => {
     <div>
       <Link
         to={`/book-details/${bookId}`}
-        className="card bg-base-100 shadow-xl h-[434px]"
+        className="card bg-base-100 border shadow-xl h-[434px]"
       >
         <figure className="px-10 pt-10 max-h-[230px]">
           <img src={image} className="rounded-xl w-40 p-6" />
         </figure>
 
-        <div className="card-body">
+        <div className="card-body  rounded-2xl">
           <ul className="flex gap-2">
             {tags.map((tag, idx) => (
               <li
