@@ -82,8 +82,12 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end gap-4 hidden md:flex">
-        <a className="btn bg-[#23BE0A] text-white">Sign In</a>
-        <a className="btn bg-[#59C6D2] text-white">Sign Up</a>
+        <a className="btn bg-[#23BE0A] text-white hover:bg-white border hover:border-[#23BE0A] hover:text-[#23BE0A] ">
+          Sign In
+        </a>
+        <a className="btn bg-white border border-[#23BE0A] text-[#23BE0A] hover:bg-[#23BE0A] hover:text-white">
+          Sign Up
+        </a>
       </div>
     </div>
   );

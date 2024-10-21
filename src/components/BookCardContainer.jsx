@@ -7,7 +7,7 @@ const BookCardContainer = ({ book }) => {
     <div>
       <Link
         to={`/book-details/${bookId}`}
-        className="card bg-base-100 border shadow-xl h-[434px]"
+        className="card bg-base-100 border shadow-xl h-[434px] hover:scale-105 transition"
       >
         <figure className="px-10 pt-10 max-h-[230px]">
           <img src={image} className="rounded-xl w-40 p-6" />

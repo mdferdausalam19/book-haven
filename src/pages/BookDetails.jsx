@@ -1,10 +1,35 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { setReadBook, setWishListBook } from "../utils/localStorage";
+import { useEffect, useState } from "react";
+import Loader from "../components/Loader";
 
 const BookDetails = () => {
-  const books = useLoaderData();
   const { id } = useParams();
-  const book = books.find((book) => book.bookId === parseInt(id));
+  const [book, setBook] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch("/booksData.json")
+      .then((response) => response.json())
+      .then((data) => {
+        const foundBook = data.find((book) => book.bookId === parseInt(id));
+        if (foundBook) {
+          setBook(foundBook);
+        } else {
+          setError("Book not found");
+        }
+        setLoading(false);
+      });
+  }, [id]);
+
+  if (loading) {
+    return <Loader></Loader>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
   const {
     image,
     bookName,
@@ -25,9 +50,9 @@ const BookDetails = () => {
         </div>
         <div>
           <h2 className=" sm:text-3xl lg:text-4xl font-bold">{bookName}</h2>
-          <p className="mt-2 text-xl">By: {author}</p>
+          <p className="mt-2 md:text-xl">By: {author}</p>
           <div className="border-2 border-dashed mt-3 mb-3"></div>
-          <p className="text-xl">{category}</p>
+          <p className="md:text-xl">{category}</p>
           <div className="border-2 border-dashed mt-3 mb-3"></div>
           <p>
             <span className="font-bold">Review: </span>

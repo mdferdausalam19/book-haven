@@ -1,13 +1,21 @@
 import { useEffect, useState } from "react";
 import BookCardContainer from "./BookCardContainer";
+import Loader from "./Loader";
 
 const BooksSection = () => {
   const [books, setBooks] = useState([]);
+  const [loader, setLoader] = useState(true);
   useEffect(() => {
     fetch("booksData.json")
       .then((res) => res.json())
-      .then((data) => setBooks(data));
+      .then((data) => {
+        setBooks(data);
+        setLoader(false);
+      });
   }, []);
+  if (loader) {
+    return <Loader></Loader>;
+  }
   return (
     <div>
       <div className="mt-14 text-center max-w-[650px] mx-auto mb-5">
